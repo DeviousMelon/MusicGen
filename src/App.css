@@ -1,0 +1,18 @@
+
+
+.navbar-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  
+}
+
+.container-fluid {
+  border: 5px solid #ffffff;
+}
+
+.card-img-top {
+  height: 180px;
+  object-fit: cover;
+}
+

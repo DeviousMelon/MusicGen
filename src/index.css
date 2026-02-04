@@ -1,0 +1,61 @@
+html, body, #root {
+  height: 100%;
+  background-color: #be0c06;
+}
+
+.hero-img {
+  height: 420px;
+  object-fit: cover;
+}
+
+@media (min-width: 992px) {
+  .hero-img {
+    height: 520px;
+  }
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+.page {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.page main {
+  flex: 1;
+}
+
+body {
+  padding-top: 80px;
+}
+
+.studio-wrap {
+  padding: 18px;
+}
+
+.studio-panel {
+  border-radius: 26px;
+  
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+}
+
+.studio-panel-sm {
+  height: 170px;
+}
+
+.studio-panel-lg {
+  min-height: 600px;
+}
+
+.studio-panel-sm .card-img-top {
+  height: 90px;
+}
+
+.studio-panel-lg .card-img-top {
+  height: 220px;
+}
+
+
