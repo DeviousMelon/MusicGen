@@ -23,7 +23,7 @@ export default function Home() {
             <Cards
               href="tutors"
               title="Tutors"
-              text="Learn from experienced music tutors."
+              text="Boo"
               image={cardTwo}
             />
           </div>
