@@ -5,8 +5,8 @@ export default function Footer() {
   <div className="container">
     <div className="row">
       <div className="col-md-4 mb-3">
-        <h5>MusicGen</h5>
-        <p>Creative music education and production.</p>
+        <h5>A Name</h5>
+        <p>Something Cool</p>
       </div>
 
       <div className="col-md-4 mb-3">
