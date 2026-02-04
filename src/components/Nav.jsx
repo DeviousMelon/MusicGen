@@ -49,19 +49,18 @@ export default function Nav() {
 
               <ul className="dropdown-menu">
                 <li>
-                  <NavLink className="dropdown-item" to="/current-programs">
-                    View Programs
+                  <NavLink className="dropdown-item" to="/limerick-voices">
+                    Limerick Voices
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="dropdown-item" to="/current-programs">
-                    Another action
+                  <NavLink className="dropdown-item" to="/after-school">
+                    After School Tuition
                   </NavLink>
                 </li>
-                <li><hr className="dropdown-divider" /></li>
                 <li>
-                  <NavLink className="dropdown-item" to="/current-programs">
-                    Something else here
+                  <NavLink className="dropdown-item" to="/community-groups">
+                    Community Groups
                   </NavLink>
                 </li>
               </ul>

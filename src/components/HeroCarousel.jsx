@@ -1,4 +1,7 @@
 import "../index.css";
+import heroOne from "../assets/heroOne.jpg";
+import heroTwo from "../assets/heroTwo.jpg";
+import heroThree from "../assets/heroThree.jpg";
 export default function HeroCarousel() {
   return (
     <div
@@ -33,7 +36,7 @@ export default function HeroCarousel() {
       <div className="carousel-inner">
         <div className="carousel-item active">
           <img
-            src="/hero1.jpg"
+            src={heroOne}
             className="d-block w-100 hero-img"
             alt="Hero slide 1"
           />
@@ -44,7 +47,7 @@ export default function HeroCarousel() {
 
         <div className="carousel-item">
           <img
-            src="/hero2.jpg"
+            src={heroTwo}
             className="d-block w-100 hero-img"
             alt="Hero slide 2"
           />
@@ -54,7 +57,7 @@ export default function HeroCarousel() {
 
         <div className="carousel-item">
           <img
-            src="/hero3.jpg"
+            src={heroThree}
             className="d-block w-100 hero-img"
             alt="Hero slide 3"
           />
@@ -82,6 +85,8 @@ export default function HeroCarousel() {
       >
         <span className="carousel-control-next-icon" aria-hidden="true"></span>
       </button>
+      <div className="scroll-indicator-left">⌄</div>
+      <div className="scroll-indicator-right">⌄</div>
     </div>
   );
 }

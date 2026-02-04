@@ -3,11 +3,13 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
-import CurrentPrograms from "./pages/CurrentPrograms";
 import Studio from "./pages/Studio";
 import Tutors from "./pages/Tutors";
 import SignUp from "./pages/SignUp";
 import Contact from "./pages/Contact";
+import LimerickVoices from "./pages/LimerickVoices";
+import AfterSchool from "./pages/AfterSchool";
+import CommunityGroups from "./pages/CommunityGroup";
 
 export default function App() {
   return (
@@ -16,7 +18,9 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/current-programs" element={<CurrentPrograms />} />
+        <Route path="/limerick-voices" element={<LimerickVoices />} />
+        <Route path="/after-school" element={<AfterSchool />}/>
+        <Route path="/community-groups" element={<CommunityGroups />} />
         <Route path="/studio" element={<Studio />} />
         <Route path="/tutors" element={<Tutors />} />
         <Route path="/signup" element={<SignUp />} />

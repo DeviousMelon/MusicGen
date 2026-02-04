@@ -3,21 +3,6 @@ html, body, #root {
   background-color: #be0c06;
 }
 
-.hero-img {
-  height: 420px;
-  object-fit: cover;
-}
-
-@media (min-width: 992px) {
-  .hero-img {
-    height: 520px;
-  }
-}
-
-html, body, #root {
-  height: 100%;
-}
-
 .page {
   min-height: 100%;
   display: flex;
@@ -58,4 +43,58 @@ body {
   height: 220px;
 }
 
+:root {
+  --nav-height: 80px;
+}
 
+#heroCarousel {
+  height: calc(100vh - var(--nav-height));
+}
+
+#heroCarousel,
+#heroCarousel .carousel-inner,
+#heroCarousel .carousel-item {
+  height: 100%;
+}
+
+.hero-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.scroll-indicator-left {
+  position: absolute;
+  bottom: 20px;
+  left: 90%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 2rem;
+  opacity: 0.7;
+}
+
+.scroll-indicator-right {
+  position: absolute;
+  bottom: 20px;
+  left: 10%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 2rem;
+  opacity: 0.7;
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.card-link .card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.card-link .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
