@@ -17,32 +17,6 @@ body {
   padding-top: 80px;
 }
 
-.studio-wrap {
-  padding: 18px;
-}
-
-.studio-panel {
-  border-radius: 26px;
-  
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
-}
-
-.studio-panel-sm {
-  height: 170px;
-}
-
-.studio-panel-lg {
-  min-height: 600px;
-}
-
-.studio-panel-sm .card-img-top {
-  height: 90px;
-}
-
-.studio-panel-lg .card-img-top {
-  height: 220px;
-}
-
 :root {
   --nav-height: 80px;
 }
@@ -97,4 +71,186 @@ body {
 .card-link .card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+
+.curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  overflow: hidden;
+
+  --curtain-duration: 1400ms;
+  --curtain-delay: 300ms;
+}
+
+.curtain__panel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50vw;
+
+  background:
+    radial-gradient(120% 55% at 50% 0%,
+      rgba(255, 220, 220, 0.18) 0%,
+      rgba(255, 220, 220, 0.06) 35%,
+      rgba(0,0,0,0) 70%),
+    repeating-linear-gradient(90deg,
+      rgba(255,255,255,0.10) 0px,
+      rgba(255,255,255,0.04) 10px,
+      rgba(0,0,0,0.10) 22px,
+      rgba(0,0,0,0.03) 36px),
+    linear-gradient(180deg,
+      #7b0f19 0%,
+      #5a0a12 35%,
+      #3f060d 100%);
+
+  filter: saturate(1.15) contrast(1.05);
+  opacity: 1;
+
+  transition:
+    transform var(--curtain-duration) cubic-bezier(.1, 1.05, .2, 1) var(--curtain-delay),
+    opacity 480ms ease calc(var(--curtain-delay) + (var(--curtain-duration) * 0.55));
+}
+
+.curtain__panel--left {
+  left: 0;
+  transform: translateX(0);
+  box-shadow:
+    18px 0 45px rgba(0,0,0,0.45),
+    inset -18px 0 30px rgba(0,0,0,0.35);
+}
+
+.curtain__panel--right {
+  right: 0;
+  transform: translateX(0);
+  box-shadow:
+    -18px 0 45px rgba(0,0,0,0.45),
+    inset 18px 0 30px rgba(0,0,0,0.35);
+}
+
+.curtain__seam {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 10px;
+  transform: translateX(-50%);
+  background:
+    linear-gradient(90deg,
+      rgba(255, 215, 215, 0.22),
+      rgba(255, 215, 215, 0.06),
+      rgba(0,0,0,0.25),
+      rgba(255, 215, 215, 0.08));
+  opacity: 0.85;
+  filter: blur(0.2px);
+  transition: opacity 520ms ease calc(var(--curtain-delay) + (var(--curtain-duration) * 0.45));
+}
+
+.curtain--open .curtain__panel--left {
+  transform: translateX(-104%);
+  opacity: 0;
+}
+
+.curtain--open .curtain__panel--right {
+  transform: translateX(104%);
+  opacity: 0;
+}
+
+.curtain--open .curtain__seam {
+  opacity: 0;
+}
+
+.curtain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 120% at 50% 50%,
+    rgba(0,0,0,0.55) 0%,
+    rgba(0,0,0,0.35) 45%,
+    rgba(0,0,0,0.65) 100%);
+  opacity: 0.35;
+  transition: opacity 450ms ease calc(var(--curtain-delay) + (var(--curtain-duration) * 0.35));
+}
+
+.curtain--open::before {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .curtain__panel,
+  .curtain__seam,
+  .curtain::before {
+    transition: none !important;
+  }
+  .curtain {
+    display: none;
+  }
+}
+
+.curtain__rope {
+  position: absolute;
+  top: 8%;
+  width: 10px;
+  height: 70%;
+  z-index: 10000;
+  pointer-events: none;
+
+  background: linear-gradient(
+    180deg,
+    #f7e27a 0%,
+    #d4af37 30%,
+    #b8860b 60%,
+    #e6c65c 100%
+  );
+
+  border-radius: 6px;
+  box-shadow:
+    0 0 8px rgba(255, 215, 0, 0.5),
+    inset 0 0 6px rgba(255, 255, 255, 0.4);
+
+  transform-origin: top center;
+  animation: ropeSway 3s ease-in-out infinite;
+}
+
+.curtain__rope--left {
+  left: 5%;
+}
+
+.curtain__rope--right {
+  right: 5%;
+}
+
+.curtain__rope::after {
+  content: "";
+  position: absolute;
+  bottom: -45px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 26px;
+  height: 45px;
+
+  background: radial-gradient(
+    ellipse at center,
+    #f7e27a 0%,
+    #d4af37 45%,
+    #b8860b 80%
+  );
+
+  border-radius: 50% 50% 45% 45%;
+  box-shadow:
+    0 4px 12px rgba(0,0,0,0.4),
+    inset 0 0 6px rgba(255,255,255,0.5);
+}
+
+@keyframes ropeSway {
+  0% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+  100% { transform: rotate(-2deg); }
+}
+
+.curtain--open .curtain__rope {
+  opacity: 0;
+  transition: opacity 400ms ease calc(var(--curtain-delay) + 200ms);
 }
